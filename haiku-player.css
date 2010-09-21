@@ -1,0 +1,4 @@
+ul.player-buttons {margin: 0;display: inline;}
+ul.player-buttons li {list-style-type: none;display: inline;margin: 0;}
+div.player-container {padding: 0 0 1.3em 0;}
+ul.player-buttons li.pause, ul.player-buttons li.stop {display: none;}
