@@ -4,7 +4,7 @@ Plugin Name: Haiku - minimalist audio player
 Plugin URI: http://daltonrooney.com/wordpress/haiku
 Description: Add a text-link HTML5 audio player using shortcode
 Author: Dalton Rooney
-Version: 0.1.1
+Version: 0.1.2
 Author URI: http://daltonrooney.com/wordpress
 */ 
 
@@ -76,7 +76,7 @@ function haiku_player_options_page() { 	// Output the options page
 	global $haiku_player_version, $haiku_player_show_support; ?>
 	<div class="wrap" style="width:500px">
 		<h2>Haiku Player</h2>
-		<p>Use the shortcode <code>[haiku_player url="http://example.com/file.mp3" title="Title of audio file"]</code> to play an audio file. Be sure to use the full URL to the audio file. Title is optional.</p>
+		<p>Use the shortcode <code>[haiku url="http://example.com/file.mp3" title="Title of audio file"]</code> to play an audio file. Be sure to use the full URL to the audio file. Title is optional.</p>
 		
 		<h2>Support this plugin</h2>
 		
