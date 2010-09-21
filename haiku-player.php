@@ -4,11 +4,11 @@ Plugin Name: Haiku - minimalist audio player
 Plugin URI: http://daltonrooney.com/wordpress/haiku
 Description: Add a text-link HTML5 audio player using shortcode
 Author: Dalton Rooney
-Version: 0.1.2
+Version: 0.1.3
 Author URI: http://daltonrooney.com/wordpress
 */ 
 
-$haiku_player_version = "0.1.1";
+$haiku_player_version = "0.1.3";
 // add our default options if they're not already there:
 if (get_option('haiku_player_version')  != $haiku_player_version) {
     update_option('haiku_player_version', $haiku_player_version);}
@@ -47,17 +47,17 @@ if( !is_admin()){
    wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"), false, '1.4.2', false); 
    wp_enqueue_script('jquery');
 }  // load jQuery.
-   wp_register_script('jplayer', ("/wp-content/plugins/haiku-player/js/jquery.jplayer.min.js"), false, '1.2', true); 
+   wp_register_script('jplayer', ("/wp-content/plugins/haiku-minimalist-audio-player/js/jquery.jplayer.min.js"), false, '1.2', true); 
    wp_enqueue_script('jplayer');
-   wp_register_script('haiku-player', ("/wp-content/plugins/haiku-player/js/haiku-player.js"), false, '0.1.1', true); 
+   wp_register_script('haiku-player', ("/wp-content/plugins/haiku-minimalist-audio-player/js/haiku-player.js"), false, '0.1.1', true); 
    wp_enqueue_script('haiku-player');
 
 function haiku_player_head() {
 	echo '
 <!-- loaded by Haiku audio player plugin-->
-<link rel="stylesheet" type="text/css" href="' .  get_bloginfo('wpurl') . '/wp-content/plugins/haiku-player/haiku-player.css" />
+<link rel="stylesheet" type="text/css" href="' .  get_bloginfo('wpurl') . '/wp-content/plugins/haiku-minimalist-audio-player/haiku-player.css" />
 <script type="text/javascript">
-var jplayerswf = "'. get_bloginfo('wpurl') . '/wp-content/plugins/haiku-player/js/";
+var jplayerswf = "'. get_bloginfo('wpurl') . '/wp-content/plugins/haiku-minimalist-audio-player/js/";
 </script>
 <!-- end Haiku -->
 ';

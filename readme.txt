@@ -1,10 +1,10 @@
 === Haiku - a minimalist audio player ===
 Contributors: daltonrooney 
-Tags: audio player, jplayer, html5, audio, flash, mp3, music, minimalist, jquery
+Tags: audio player, jplayer, html5, audio, flash, mp3, music, minimalist, jquery, haiku
 Requires at least: 2.8
 Donate link: http://daltonrooney.com/wordpress/donate
 Tested up to: 3.0.1
-Stable tag: 0.1.2
+Stable tag: 0.1.3
 
 An exceptionally simple HTML5-based audio player that inserts a text link to control playback. Uses jPlayer and jQuery.
 
@@ -31,6 +31,10 @@ Not yet. Maybe someday. You might want to drop a link in the [forum](http://dalt
 1. Example of inserted player.
 
 == Changelog ==
+
+= 0.1.3 =
+
+* Updated folder structure as per WordPress repository requirements
 
 = 0.1.2 =
 
