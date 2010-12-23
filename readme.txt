@@ -6,13 +6,9 @@ Donate link: http://daltonrooney.com/wordpress/donate
 Tested up to: 3.0.1
 Stable tag: 0.2.0
 
-== Short Description == 
-
-An exceptionally simple HTML5-based audio player that inserts a text link for audio playback. Now includes an optional graphical version of the player.
-
 == Description ==
 
-An exceptionally simple HTML5-based audio player that inserts a text link for audio playback. Now includes an optional graphical version of the player. Works great on mobile devices! Based on jPlayer, the jQuery audio player from [happyworm](http://www.happyworm.com/jquery/jplayer/).
+An exceptionally simple HTML5-based audio player that inserts a text link for audio playback. Now includes an optional graphical version of the player. Based on jPlayer from Happyworm.
 
 == Installation ==
 
