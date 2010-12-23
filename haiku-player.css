@@ -1,8 +1,6 @@
-/* @override http://daltonrooney.com/portfolio-dev/wp-content/plugins/haiku-minimalist-audio-player/haiku-player.css */
-
-.text-player-container ul{display:inline;margin:0;}
-.text-player-container li{list-style-type:none;display:inline;margin:0 0 0 0;}
-.text-player-container li.stop {margin: 0 3px 0 0;
+.text-player-container ul{margin:0 0 15px 0;}
+.text-player-container li{list-style-type:none;display:inline;padding:0 10px 0 0;}
+.text-player-container li.stop {padding: 0 10px 0 0;
 }
 .player-container{visibility:hidden;border:none;height:30px;width:162px;padding:0 20px 20px 0;}
 .player-container ul{list-style:none !important;color:#fff !important;margin:0 !important;padding:0 !important;}
