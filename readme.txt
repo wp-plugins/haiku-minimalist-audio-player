@@ -4,33 +4,55 @@ Tags: audio player, jplayer, html5, audio, flash, mp3, music, minimalist, jquery
 Requires at least: 2.8
 Donate link: http://daltonrooney.com/wordpress/donate
 Tested up to: 3.0.1
-Stable tag: 0.1.3
+Stable tag: 0.2.0
 
-An exceptionally simple HTML5-based audio player that inserts a text link to control playback. Uses jPlayer and jQuery.
+== Short Description == 
+
+An exceptionally simple HTML5-based audio player that inserts a text link for audio playback. Now includes an optional graphical version of the player.
 
 == Description ==
 
-An exceptionally simple HTML5-based audio player that inserts a text link to control playback. Reverts to an invisible Flash player for browsers that don't yet support HTML5. Based on jPlayer, the jQuery audio player from [happyworm](http://www.happyworm.com/jquery/jplayer/).
+An exceptionally simple HTML5-based audio player that inserts a text link for audio playback. Now includes an optional graphical version of the player. Works great on mobile devices! Based on jPlayer, the jQuery audio player from [happyworm](http://www.happyworm.com/jquery/jplayer/).
 
 == Installation ==
 
 Extract the zip file and upload the contents to the wp-content/plugins/ directory of your WordPress installation and then activate the plugin from plugins page. 
 
-Use shortcode [haiku url="http://example.com/file.mp3" title="Title of audio file"] to play an audio file. Be sure to use the full URL to the audio file. Title is optional.
+Use shortcode [haiku url="http://example.com/file.mp3" title="Title of audio file"] to play an audio file. Be sure to use the full URL to the audio file. The title field is optional.
+
+*New!* The player now supports a graphical mode, which is turned off by default. Enable graphical mode by changing the default setting in the settings panel (Settings->Haiku Player) or by adding the attribute graphical="true" to your shortcode. Can be overridden on a per-player basis.
+
+Please note that the graphical player is at an early stage of development and should be tested before you deploy it to a large audience. It is likely that the design of the player will change in future versions. It's just HTML & CSS, so feel free to experiment with your own examples.
 
 == Frequently Asked Questions ==
 
 
-= Can it do this, this, or that? =
+= I've got a suggestion, how should I send it to you?=
 
-Not yet. Maybe someday. You might want to drop a link in the [forum](http://daltonrooney.com/wordpress/forum).
+You might want to drop a link in the [forum](http://madebyraygun.com/forum).
+
+= The graphical mode is all screwed up! =
+
+The graphical mode is just basic HTML & CSS. I've done my best to make it compatible with a variety of themes, but I can't test every single one. Send me a link via the [forum](http://madebyraygun.com/forum) and I'll try to help you out.
+
+= How can I customize the graphical mode with my own colors, text, or what have you? =
+
+Since the player is straight up HTML & CSS, feel free to make any changes you want. The original assets are zipped up in the "Resources" folder. If you would like advanced customization, [my company](http://madebyraygun.com) is available to help.
 
 == Screenshots ==
 
 
 1. Example of inserted player.
 
+2. Settings page.
+
 == Changelog ==
+
+= 0.2.0 =
+
+* Added new graphical player option
+
+* Removed pause button from text version of player
 
 = 0.1.3 =
 
@@ -47,3 +69,9 @@ Not yet. Maybe someday. You might want to drop a link in the [forum](http://dalt
 = 0.1 =
 
 * First version
+
+== Upgrade Notice ==
+
+= 0.2.0 =
+
+New graphical version of plugin. Please note, the pause button has been removed in the latest version of the text player.
