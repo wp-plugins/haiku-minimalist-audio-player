@@ -4,7 +4,7 @@ Tags: audio player, jplayer, html5, audio, flash, mp3, music, minimalist, jquery
 Requires at least: 2.8
 Donate link: http://daltonrooney.com/wordpress/donate
 Tested up to: 3.0.1
-Stable tag: 0.2.0
+Stable tag: 0.2.0a
 
 == Description ==
 
@@ -43,6 +43,10 @@ Since the player is straight up HTML & CSS, feel free to make any changes you wa
 2. Settings page.
 
 == Changelog ==
+
+=  0.2.0a =
+
+* Just refreshing the repo because of a corrupted file. If your version is working, no need to update.
 
 = 0.2.0 =
 

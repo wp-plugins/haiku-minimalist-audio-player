@@ -4,11 +4,11 @@ Plugin Name: Haiku - minimalist audio player
 Plugin URI: http://daltonrooney.com/wordpress/haiku
 Description: Add a text-link HTML5 audio player using shortcode
 Author: Dalton Rooney
-Version: 0.2.0
+Version: 0.2.0a
 Author URI: http://daltonrooney.com/wordpress
 */ 
 
-$haiku_player_version = "0.2.0";
+$haiku_player_version = "0.2.0a";
 // add our default options if they're not already there:
 if (get_option('haiku_player_version')  != $haiku_player_version) {
     update_option('haiku_player_version', $haiku_player_version);}
