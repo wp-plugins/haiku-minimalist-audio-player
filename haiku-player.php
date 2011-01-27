@@ -2,29 +2,35 @@
 /*
 Plugin Name: Haiku - minimalist audio player
 Plugin URI: http://daltonrooney.com/wordpress/haiku
-Description: Add a text-link HTML5 audio player using shortcode
+Description: Add a clean and simple HTML5 audio player using shortcode
 Author: Dalton Rooney
-Version: 0.2.0a
+Version: 0.3.0
 Author URI: http://daltonrooney.com/wordpress
 */ 
 
-$haiku_player_version = "0.2.0a";
+$haiku_player_version = "0.3.0";
 // add our default options if they're not already there:
 if (get_option('haiku_player_version')  != $haiku_player_version) {
     update_option('haiku_player_version', $haiku_player_version);}
 add_option("haiku_player_show_support", 'true'); 
 add_option("haiku_player_show_graphical", 'false'); 
+add_option("haiku_player_analytics", 'false'); 
    
 // now let's grab the options table data
 $haiku_player_version = get_option('haiku_player_version');
 $haiku_player_show_support = get_option('haiku_player_show_support');
 $haiku_player_show_graphical = get_option('haiku_player_show_graphical');
+$haiku_player_analytics = get_option('haiku_player_analytics');
+
+//set up defaults if these fields are empty
+if (empty($haiku_player_show_graphical)) {$haiku_player_show_graphical = "false";}
+if (empty($haiku_player_analytics)) {$haiku_player_analytics = "false";}
 
 add_shortcode('haiku', 'haiku_player_shortcode');
 // define the shortcode function
 
 function haiku_player_shortcode($atts) {
-	global $haiku_player_show_graphical;
+	global $haiku_player_show_graphical, $haiku_player_analytics;
 	STATIC $i = 1;
 	extract(shortcode_atts(array(
 		'url'	=> '',
@@ -38,7 +44,9 @@ function haiku_player_shortcode($atts) {
 	<div id="haiku-text-player'.$i.'" class="haiku-text-player"></div>
 		 <div id="text-player-container'.$i.'" class="text-player-container"> 
 			<ul id="player-buttons'.$i.'" class="player-buttons"> 
-				<li class="play"><a href="'.$url.'">play</a></li> 
+				<li class="play"';
+				if ($haiku_player_analytics == "true") { $haiku_player_shortcode .=  ' onClick="_gaq.push([\'_trackEvent\', \'Audio\', \'Play\', \''.$title.'\']);"';}
+				$haiku_player_shortcode .= '><a class="play" href="'.$url.'">play</a></li> 
 				<li class="stop"><a href="javascript: void(0);">stop</a></li>';
 				
 				if(!empty($title)) { $haiku_player_shortcode .= '<li class="title">'.esc_attr($title).'</li>'; }
@@ -50,10 +58,11 @@ function haiku_player_shortcode($atts) {
 	
 	<div id="haiku-player'.$i.'" class="haiku-player"></div>
 	
-		<div id="player-container'.$i.'" class="player-container"><div id="haiku-button'.$i.'" class="haiku-button"><a href="'.$url.'"><img class="listen" src="';
-		
+		<div id="player-container'.$i.'" class="player-container"><div id="haiku-button'.$i.'" class="haiku-button"><a class="play" href="'.$url.'"';
+		if ($haiku_player_analytics == "true") 
+			{$haiku_player_shortcode .=  ' onClick="_gaq.push([\'_trackEvent\', \'Audio\', \'Play\', \''.$title.'\']);"';}
+		$haiku_player_shortcode .= '><img class="listen" src="';
 		$haiku_player_shortcode .=  plugins_url( 'resources/play.png', __FILE__ );
-		
 		$haiku_player_shortcode .= '"  /></a>
 		
 		<ul id="controls'.$i.'" class="controls"><li class="pause"><a href="javascript: void(0);"></a></li><li class="play"><a href="javascript: void(0);"></a></li><li class="stop"><a href="javascript: void(0);"></a></li><li id="sliderPlayback'.$i.'" class="sliderplayback"></li></ul></div>
@@ -131,23 +140,28 @@ function haiku_player_options_page() { 	// Output the options page
 </form>
 
 <form method="post" action="options.php">
+<?php global $haiku_player_show_graphical, $haiku_player_analytics;?>
 
 <?php wp_nonce_field('update-options'); ?>
 
 <h2>Haiku Player Settings</h2>
 
 <table class="form-table">
+
 <tr valign="top">
-<th scope="row">Use graphical player (experimental)</th>
-<td><select name="haiku_player_show_graphical" value="<?php echo get_option('haiku_player_show_graphical'); ?>" />
-	<option value="true" <?php if($haiku_player_show_graphical == "true") echo " selected='selected'";?>>true</option>
-	<option value="false" <?php if($haiku_player_show_graphical == "false") echo " selected='selected'";?>>false</option>
-</select>
-</td>
-</tr>	
+	<th scope="row">Enable Google Analytics</th>
+	<td><input type="checkbox" name="haiku_player_analytics" value="true" <?php if ($haiku_player_analytics=="true") {echo' checked="checked"'; }?>/>
+	</td>
+</tr>
+
+<tr valign="top">
+	<th scope="row">Use graphical player</th>
+	<td><input type="checkbox" name="haiku_player_show_graphical" value="true" <?php if ($haiku_player_show_graphical=="true") {echo' checked="checked"'; }?>/>
+	</td>
+</tr>
 </table>
 
-<input type="hidden" name="page_options" value="haiku_player_show_graphical" />
+<input type="hidden" name="page_options" value="haiku_player_show_graphical, haiku_player_analytics" />
 <input type="hidden" name="action" value="update" />	
 <p class="submit">
 <input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
@@ -156,9 +170,11 @@ function haiku_player_options_page() { 	// Output the options page
 
 
 		<h2>Reference</h2>
-		<p>Use the shortcode <code>[haiku url="http://example.com/file.mp3" title="Title of audio file"]</code> to play an audio file. Be sure to use the full URL to the audio file. The title field is optional.</p>
+		<p>Use the shortcode <code>[haiku url="http://example.com/file.mp3" title="Title of audio file"]</code> to play an audio file. Be sure to use the full URL to the audio file. The title field is optional unless you are using Google Analytics.</p>
 		
-		<p><strong>New!</strong> The player now supports a graphical mode, which is turned off by default. Enable graphical mode by changing the default setting in the settings panel or by adding the attribute <code>graphical="true"</code> to your shortcode. Can be overridden on a per-player basis.</p>
+		<p>The Google Analytics setting enables a script which tracks play events in your Google Analytics account using the title field. You must already have Google Analytics tracking installed on your site, using the asynchronous version of the script in the head of your HTML document.</p>
+		
+		<p>The player now supports a graphical mode, which is turned off by default. Enable graphical mode by changing the default setting in the settings panel or by adding the attribute <code>graphical="true"</code> to your shortcode. Can be overridden on a per-player basis.</p>
 		
 		<p>The graphical player looks like this:</p>
 		<img src ="<?php echo plugins_url( 'resources/player-example.png', __FILE__ )?>" alt="player example" height="50" width="178"/>

@@ -93,9 +93,9 @@ jQuery(document).ready(function($) {
 			}
 		});
 	
-		$(buttonId + " a img.listen").click(function() {
+		$(buttonId + " a.play").click(function() {
 			stopPreviousPlayer();
-			$(this).hide();
+			$(buttonId + " a img.listen").hide();
 			$(buttonId + " li.play").hide();
 			$("ul#controls" + num).fadeIn('fast');
 			$("ul#info" + num).fadeIn('fast');
