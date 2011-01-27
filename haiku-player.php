@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Haiku - minimalist audio player
-Plugin URI: http://daltonrooney.com/wordpress/haiku
+Plugin URI: http://madebyraygun.com/lab/haiku
 Description: Add a clean and simple HTML5 audio player using shortcode
 Author: Dalton Rooney
 Version: 0.3.0
-Author URI: http://daltonrooney.com/wordpress
+Author URI: http://madebyraygun.com
 */ 
 
 $haiku_player_version = "0.3.0";
