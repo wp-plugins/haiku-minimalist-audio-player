@@ -2,13 +2,13 @@
 /*
 Plugin Name: Haiku - minimalist audio player
 Plugin URI: http://madebyraygun.com/lab/haiku
-Description: Add a clean and simple HTML5 audio player using shortcode
+Description: A simple HTML5-based audio player that inserts a text link or graphical player for audio playback.
 Author: Dalton Rooney
-Version: 0.3.0
+Version: 0.3.1
 Author URI: http://madebyraygun.com
 */ 
 
-$haiku_player_version = "0.3.0";
+$haiku_player_version = "0.3.1";
 // add our default options if they're not already there:
 if (get_option('haiku_player_version')  != $haiku_player_version) {
     update_option('haiku_player_version', $haiku_player_version);}
@@ -46,7 +46,7 @@ function haiku_player_shortcode($atts) {
 			<ul id="player-buttons'.$i.'" class="player-buttons"> 
 				<li class="play"';
 				if ($haiku_player_analytics == "true") { $haiku_player_shortcode .=  ' onClick="_gaq.push([\'_trackEvent\', \'Audio\', \'Play\', \''.$title.'\']);"';}
-				$haiku_player_shortcode .= '><a class="play" href="'.$url.'">play</a></li> 
+				$haiku_player_shortcode .= '><a title="Listen to '.$title.'" class="play" href="'.$url.'">play</a></li> 
 				<li class="stop"><a href="javascript: void(0);">stop</a></li>';
 				
 				if(!empty($title)) { $haiku_player_shortcode .= '<li class="title">'.esc_attr($title).'</li>'; }
@@ -58,10 +58,10 @@ function haiku_player_shortcode($atts) {
 	
 	<div id="haiku-player'.$i.'" class="haiku-player"></div>
 	
-		<div id="player-container'.$i.'" class="player-container"><div id="haiku-button'.$i.'" class="haiku-button"><a class="play" href="'.$url.'"';
+		<div id="player-container'.$i.'" class="player-container"><div id="haiku-button'.$i.'" class="haiku-button"><a title="Listen to '.$title.'" class="play" href="'.$url.'"';
 		if ($haiku_player_analytics == "true") 
 			{$haiku_player_shortcode .=  ' onClick="_gaq.push([\'_trackEvent\', \'Audio\', \'Play\', \''.$title.'\']);"';}
-		$haiku_player_shortcode .= '><img class="listen" src="';
+		$haiku_player_shortcode .= '><img alt="Listen to '.$title.'" class="listen" src="';
 		$haiku_player_shortcode .=  plugins_url( 'resources/play.png', __FILE__ );
 		$haiku_player_shortcode .= '"  /></a>
 		
@@ -110,40 +110,14 @@ function haiku_player_options_page() { 	// Output the options page
 	global $haiku_player_version, $haiku_player_show_support, $haiku_player_show_graphical; ?>
 	<div class="wrap" style="width:500px">
 	
-			<h2>Support this plugin</h2>
-
-<div<?php if ($haiku_player_show_support=="true"){echo ' style="display:none"';}?>>
-
-<p>Donations for this software are welcome:</p> 
-
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post"> 
-<input type="hidden" name="cmd" value="_s-xclick"> 
-<input type="hidden" name="hosted_button_id" value="2ANTEK4HG6XCW"> 
-<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> 
-<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"><br /> 
-</form> 
-
-<p>One more thing: we love <a href="http://daltn.com/x/a2">A2 Hosting</a>! We've been using them for years, and they provide the best web host service and support in the industry. If you sign up through the link below, we get a referral fee, which helps us maintain this software. Their one-click WordPress install will have you up and running in just a couple of minutes.</p> 
-<p><a  href="http://daltn.com/x/a2"><img style="margin:10px 0;" src="http://daltonrooney.com/portfolio/wp-content/uploads/2010/01/green_234x60.jpeg" alt="" title="green_234x60" width="234" height="60" class="alignnone size-full wp-image-148" /></a></p> 
-</div>
-
-<form method="post" action="options.php">
-<?php wp_nonce_field('update-options'); ?>
-<input type="checkbox" name="haiku_player_show_support" value="true"<?php if ($haiku_player_show_support=="true"){echo ' checked="checked"';}?>> I have donated to the plugin, don't show ads.<br />
-<input type="hidden" name="page_options" value="haiku_player_show_support" />
-<input type="hidden" name="action" value="update" />	
-
-<p class="submit">
-<input type="submit" class="button-primary" value="<?php _e('Save') ?>" />
-</p>
-
-</form>
 
 <form method="post" action="options.php">
 <?php global $haiku_player_show_graphical, $haiku_player_analytics;?>
 
 <?php wp_nonce_field('update-options'); ?>
 
+	<div class="updated fade"><p style="line-height: 1.4em;">Thanks for downloading Haiku! If you like it, please be sure to give us a positive rating in the <a href="http://wordpress.org/extend/plugins/haiku-minimalist-audio-player/">WordPress repository</a>, it will help other people find the plugin and means a lot to us.<br /></div>
+	
 <h2>Haiku Player Settings</h2>
 
 <table class="form-table">
@@ -168,9 +142,38 @@ function haiku_player_options_page() { 	// Output the options page
 </p>
 </form>
 
+			<h2>Support this plugin</h2>
+
+<div<?php if ($haiku_player_show_support=="true"){echo ' style="display:none"';}?>>
+
+<p>Donations for this software are welcome:</p> 
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="UKN9872VTPJPW">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<br /></form> 
+
+<p>One more thing: we love <a href="http://rygn.us/gugqDg">A2 Hosting</a>! We've been using them for years, and they provide the best web host service and support in the industry. If you sign up through the link below, we get a referral fee, which helps us maintain this software. Their one-click WordPress install will have you up and running in just a couple of minutes.</p> 
+<p><a  href="http://rygn.us/gugqDg"><img style="margin:10px 0;" src="http://daltonrooney.com/portfolio/wp-content/uploads/2010/01/green_234x60.jpeg" alt="" title="green_234x60" width="234" height="60" class="alignnone size-full wp-image-148" /></a></p> 
+</div>
+
+<form method="post" action="options.php">
+<?php wp_nonce_field('update-options'); ?>
+<input type="checkbox" name="haiku_player_show_support" value="true"<?php if ($haiku_player_show_support=="true"){echo ' checked="checked"';}?>> I have donated to the plugin, don't show ads.<br />
+<input type="hidden" name="page_options" value="haiku_player_show_support" />
+<input type="hidden" name="action" value="update" />	
+
+<p class="submit">
+<input type="submit" class="button-primary" value="<?php _e('Save') ?>" />
+</p>
+
+</form>
+
+
 
 		<h2>Reference</h2>
-		<p>Use the shortcode <code>[haiku url="http://example.com/file.mp3" title="Title of audio file"]</code> to play an audio file. Be sure to use the full URL to the audio file. The title field is optional unless you are using Google Analytics.</p>
+		<p>Use the shortcode <code>[haiku url="http://example.com/file.mp3" title="Title of audio file"]</code> to play an audio file. Be sure to use the full URL to the audio file. The title field is recommended for search engine and accessibility purposes and required if you are using Google Analytics.</p>
 		
 		<p>The Google Analytics setting enables a script which tracks play events in your Google Analytics account using the title field. You must already have Google Analytics tracking installed on your site, using the asynchronous version of the script in the head of your HTML document.</p>
 		
@@ -181,6 +184,9 @@ function haiku_player_options_page() { 	// Output the options page
 	
 		<p>Please note that the graphical player is at an early stage of development and should be tested before you deploy it to a large audience. It is likely that the design of the player will change in future versions. It's just HTML & CSS, so feel free to experiment with your own version.</p>
 
-		<p>You're using Haiku Player v. <?php echo $haiku_player_version;?> by <a href="http://madebyraygun.com">Raygun</a>.<p>Based on jPlayer, by <a href="http://www.happyworm.com/jquery/jplayer/">Happyworm</a>.</p>
+	<a href="http://madebyraygun.com"><img style="margin-top:30px;" src="<?php echo plugins_url( 'resources/logo.png', __FILE__ );?>" width="225" height="70" alt="Made by Raygun" /></a>
+	<p>You're using Haiku Player v. <?php echo $haiku_player_version;?> by <a href="http://madebyraygun.com">Raygun</a>. Check out our <a href="http://madebyraygun.com/lab/">other plugins</a>, and if you have any problems, stop by our <a href="http://madebyraygun.com/support/forum/">support forum</a>!</p>
+	
+	<p>Based on jPlayer, by <a href="http://www.happyworm.com/jquery/jplayer/">Happyworm</a>.</p>
 	</div><!--//wrap div-->
 <?php } ?>

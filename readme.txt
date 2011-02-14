@@ -3,18 +3,18 @@ Contributors: daltonrooney
 Tags: audio player, jplayer, html5, audio, flash, mp3, music, minimalist, jquery, haiku
 Requires at least: 2.8
 Donate link: http://madebyraygun.com/donate/
-Tested up to: 3.0.1
-Stable tag: 0.3.0
+Tested up to: 3.1
+Stable tag: 0.3.1
 
 == Description ==
 
-A simple HTML5-based audio player that inserts a text link or graphical player for audio playback. Includes Google Analytics tracking of audio plays. Based on [jPlayer](http://www.jplayer.org/).
+A simple HTML5-based audio player that inserts a text link or graphical player for audio playback. Fully accessible and degrades gracefully, and includes Google Analytics tracking of audio plays. Based on [jPlayer](http://www.jplayer.org/).
 
 == Installation ==
 
 Extract the zip file and upload the contents to the wp-content/plugins/ directory of your WordPress installation and then activate the plugin from plugins page. 
 
-Use shortcode [haiku url="http://example.com/file.mp3" title="Title of audio file"] to play an audio file. Be sure to use the full URL to the audio file. The title field is optional unless you are using Google Analytics, which requires a title.
+Use shortcode [haiku url="http://example.com/file.mp3" title="Title of audio file"] to play an audio file. Be sure to use the full URL to the audio file. The title field is recommended for search engine and accessibility purposes and required if you are using Google Analytics.
 
 The Google Analytics setting enables a script which tracks play events in your Google Analytics account using the title field. You must already have Google Analytics tracking installed on your site, using the asynchronous version of the script in the head of your HTML document.
 
@@ -58,6 +58,9 @@ You might want to drop a link in the [forum](http://madebyraygun.com/forum).
 
 
 
+= 0.3.1 =
+
+* Added titles and alt tags to improve accessibility.
 
 = 0.3.0 = 
 
