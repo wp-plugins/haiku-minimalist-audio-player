@@ -4,7 +4,7 @@ Tags: audio player, jplayer, html5, audio, flash, mp3, music, minimalist, jquery
 Requires at least: 2.8
 Donate link: http://madebyraygun.com/donate/
 Tested up to: 3.1
-Stable tag: 0.4.0
+Stable tag: 0.4.1
 
 == Description ==
 
@@ -65,6 +65,17 @@ You might want to drop a link in the [forum](http://madebyraygun.com/forum).
 == Changelog ==
 
 
+
+= 0.4.1 =
+
+
+
+* MP3 auto-replace now replaces all links on page (thanks pasevin!).
+
+
+* Optimized database updates & admin page load. 
+
+* Settings link in plugins list.
 
 = 0.4.0 =
 
