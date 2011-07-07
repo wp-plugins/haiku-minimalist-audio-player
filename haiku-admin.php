@@ -6,10 +6,10 @@ add_action('admin_menu', 'add_haiku_player_option_page');
 
 function add_haiku_player_option_page() {
 	// hook in the options page function
-	add_options_page('Haiku Player', 'Haiku Player', 6, __FILE__, 'haiku_player_options_page');
+	add_options_page('Haiku Player', 'Haiku Player', 'manage_options', __FILE__, 'haiku_player_options_page');
 }
 function haiku_player_options_page() { 	// Output the options page
-	global $haiku_player_version, $haiku_player_show_support, $haiku_player_default_location,  $haiku_player_show_graphical, $haiku_player_replace_audio_player, $haiku_player_replace_mp3_links; ?>
+	global $haiku_player_analytics, $haiku_player_version, $haiku_player_show_support, $haiku_player_default_location,  $haiku_player_show_graphical, $haiku_player_replace_audio_player, $haiku_player_replace_mp3_links; ?>
 	<div class="wrap" style="width:800px">
 	
 

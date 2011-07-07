@@ -4,11 +4,11 @@ Plugin Name: Haiku - minimalist audio player
 Plugin URI: http://madebyraygun.com/lab/haiku
 Description: A simple HTML5-based audio player that inserts a text link or graphical player for audio playback.
 Author: Dalton Rooney
-Version: 0.4.1
+Version: 0.4.2
 Author URI: http://madebyraygun.com
 */ 
 
-define("HAIKU_VERSION", "0.4.1");
+define("HAIKU_VERSION", "0.4.2");
 
 register_activation_hook( __FILE__, 'haiku_install' );
 
@@ -66,7 +66,7 @@ function replace_audio($content) { //finds the old audio player shortcode and re
 }
 
 if (!empty($haiku_player_replace_audio_player)) { //only run the audio tag replacement filter if the user selected it
-	add_filter('the_content', replace_audio);
+	add_filter('the_content', 'replace_audio');
 }
 
 function replace_mp3_links($content) {
@@ -77,7 +77,7 @@ function replace_mp3_links($content) {
 }
 
 if (!empty($haiku_player_replace_mp3_links)) { //only run the MP3 link replacement filter if the user selected it
-	add_filter('the_content', replace_mp3_links);
+	add_filter('the_content', 'replace_mp3_links');
 }
 
 add_shortcode('haiku', 'haiku_player_shortcode');
@@ -95,7 +95,7 @@ function haiku_player_shortcode($atts) {
 	// stuff that loads when the shortcode is called goes here
 	
 	if ($graphical == "false") {	//decide whether to show the text or graphical player
-	$haiku_player_shortcode .= '
+	$haiku_player_shortcode = '
 	<div id="haiku-text-player'.$i.'" class="haiku-text-player"></div>
 		 <div id="text-player-container'.$i.'" class="text-player-container"> 
 			<ul id="player-buttons'.$i.'" class="player-buttons"> 
@@ -117,7 +117,7 @@ function haiku_player_shortcode($atts) {
 			$haiku_player_shortcode .= '</ul> 
 	</div>';
 	} elseif ($graphical == "true") {
-	$haiku_player_shortcode .= '
+	$haiku_player_shortcode = '
 	
 	<div id="haiku-player'.$i.'" class="haiku-player"></div>
 	

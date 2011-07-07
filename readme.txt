@@ -3,8 +3,8 @@ Contributors: daltonrooney
 Tags: audio player, jplayer, html5, audio, flash, mp3, music, minimalist, jquery, haiku
 Requires at least: 2.8
 Donate link: http://madebyraygun.com/donate/
-Tested up to: 3.1
-Stable tag: 0.4.1
+Tested up to: 3.2
+Stable tag: 0.4.2
 
 == Description ==
 
