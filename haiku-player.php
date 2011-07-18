@@ -90,14 +90,21 @@ function haiku_player_shortcode($atts) {
 		'url'	=> '',
 		'title'	=> '',
 		'defaultpath' => '',
+		'noplayerdiv' => '',
 		'graphical' => $haiku_player_show_graphical
 	), $atts));
 	// stuff that loads when the shortcode is called goes here
 	
 	if ($graphical == "false") {	//decide whether to show the text or graphical player
-	$haiku_player_shortcode = '
-	<div id="haiku-text-player'.$i.'" class="haiku-text-player"></div>
-		 <div id="text-player-container'.$i.'" class="text-player-container"> 
+	
+		if ( $noplayerdiv != "true" ) { //this exists mainly to hide the player controls and control it with an external application.
+			$haiku_player_shortcode = '<div id="haiku-text-player'.$i.'" class="haiku-text-player"></div>';
+		} else {
+			$haiku_player_shortcode = "";
+		}
+
+		$haiku_player_shortcode .= '
+			<div id="text-player-container'.$i.'" class="text-player-container"> 
 			<ul id="player-buttons'.$i.'" class="player-buttons"> 
 				<li class="play"';
 				if ($haiku_player_analytics == "true") { $haiku_player_shortcode .=  ' onClick="_gaq.push([\'_trackEvent\', \'Audio\', \'Play\', \''.$title.'\']);"';}
@@ -116,12 +123,16 @@ function haiku_player_shortcode($atts) {
 				
 			$haiku_player_shortcode .= '</ul> 
 	</div>';
+
 	} elseif ($graphical == "true") {
-	$haiku_player_shortcode = '
 	
-	<div id="haiku-player'.$i.'" class="haiku-player"></div>
-	
-		<div id="player-container'.$i.'" class="player-container"><div id="haiku-button'.$i.'" class="haiku-button"><a title="Listen to '.$title.'" class="play" href="';
+		if ( $noplayerdiv != "true" ) { //this option exists mainly so we can the player controls and control it with an external application if necessary.
+			$haiku_player_shortcode = '<div id="haiku-player'.$i.'" class="haiku-player"></div>';
+		} else {
+			$haiku_player_shortcode = "";
+		}
+
+		$haiku_player_shortcode .= '<div id="haiku-button'.$i.'" class="haiku-button"><a title="Listen to '.$title.'" class="play" href="';
 				
 				if (!empty($haiku_player_default_location) && $defaultpath !="disabled") {
 					$haiku_player_shortcode .= site_url() . $haiku_player_default_location . "/";
