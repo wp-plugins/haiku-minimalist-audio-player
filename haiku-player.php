@@ -4,11 +4,11 @@ Plugin Name: Haiku - minimalist audio player
 Plugin URI: http://madebyraygun.com/lab/haiku
 Description: A simple HTML5-based audio player that inserts a text link or graphical player for audio playback.
 Author: Dalton Rooney
-Version: 0.4.2
+Version: 0.4.3
 Author URI: http://madebyraygun.com
 */ 
 
-define("HAIKU_VERSION", "0.4.2");
+define("HAIKU_VERSION", "0.4.3");
 
 register_activation_hook( __FILE__, 'haiku_install' );
 
@@ -121,7 +121,7 @@ function haiku_player_shortcode($atts) {
 				
 				if(!empty($title)) { $haiku_player_shortcode .= '<li class="title">'.esc_attr($title).'</li>'; }
 				
-			$haiku_player_shortcode .= '</ul> 
+			$haiku_player_shortcode .= '</ul>
 	</div>';
 
 	} elseif ($graphical == "true") {
@@ -132,7 +132,7 @@ function haiku_player_shortcode($atts) {
 			$haiku_player_shortcode = "";
 		}
 
-		$haiku_player_shortcode .= '<div id="haiku-button'.$i.'" class="haiku-button"><a title="Listen to '.$title.'" class="play" href="';
+		$haiku_player_shortcode .= '<div id="player-container'.$i.'" class="player-container"><div id="haiku-button'.$i.'" class="haiku-button"><a title="Listen to '.$title.'" class="play" href="';
 				
 				if (!empty($haiku_player_default_location) && $defaultpath !="disabled") {
 					$haiku_player_shortcode .= site_url() . $haiku_player_default_location . "/";
