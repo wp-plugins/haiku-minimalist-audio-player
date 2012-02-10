@@ -60,20 +60,6 @@ function haiku_player_options_page() { 	// Output the options page
 <input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
 </p>
 </form>
-
-<h2>Support this plugin</h2>
-
-<p>Donations for this software are welcome:</p> 
-
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="UKN9872VTPJPW">
-<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<br /></form> 
-
-
-
-
 		<h2>Reference</h2>
 		<p>Use the shortcode <code>[haiku url="http://example.com/file.mp3" title="Title of audio file"]</code> to play an audio file. Use the full URL of the audio file unless you've set a default file location. The title field is recommended for search engine and accessibility purposes and required if you are using Google Analytics.</p>
 		
@@ -90,10 +76,9 @@ function haiku_player_options_page() { 	// Output the options page
 		<p>The graphical player looks like this:</p>
 		<img src ="<?php echo plugins_url( 'resources/player-example.png', __FILE__ )?>" alt="player example" height="50" width="178"/>
 	
-		<p>Please note that the graphical player is at an early stage of development and should be tested before you deploy it to a large audience. It is likely that the design of the player will change in future versions. It's just HTML & CSS, so feel free to experiment with your own version.</p>
-
+	
 	<a href="http://madebyraygun.com"><img style="margin-top:30px;" src="<?php echo plugins_url( 'resources/logo.png', __FILE__ );?>" width="225" height="70" alt="Made by Raygun" /></a>
-	<p>You're using Haiku Player v. <?php echo $haiku_player_version;?> by <a href="http://madebyraygun.com">Raygun</a>. Check out our <a href="http://madebyraygun.com/lab/">other plugins</a>, and if you have any problems, stop by our <a href="http://madebyraygun.com/support/forum/">support forum</a>!</p>
+	<p>You're using Haiku Player v. <?php echo $haiku_player_version;?> by <a href="http://madebyraygun.com">Raygun</a>. Check out our <a href="http://madebyraygun.com/wordpress/plugins/">other plugins</a>, and if you have any problems, stop by our <a href="http://madebyraygun.com/support/">support forum</a>!</p>
 	
 	<p>Based on jPlayer, by <a href="http://www.happyworm.com/jquery/jplayer/">Happyworm</a>.</p>
 	</div><!--//wrap div-->

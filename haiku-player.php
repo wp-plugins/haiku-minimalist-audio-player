@@ -1,14 +1,14 @@
 <?php
 /*
 Plugin Name: Haiku - minimalist audio player
-Plugin URI: http://madebyraygun.com/lab/haiku
-Description: A simple HTML5-based audio player that inserts a text link or graphical player for audio playback.
-Author: Dalton Rooney
-Version: 0.4.3
+Plugin URI: http://wordpress.org/extend/plugins/haiku-minimalist-audio-player/
+Description: A simple HTML5-based audio player.
+Author: Raygun
+Version: 0.4.4
 Author URI: http://madebyraygun.com
 */ 
 
-define("HAIKU_VERSION", "0.4.3");
+define("HAIKU_VERSION", "0.4.4");
 
 register_activation_hook( __FILE__, 'haiku_install' );
 
@@ -61,7 +61,7 @@ add_filter('plugin_action_links', 'haiku_action_links', 10, 2);
 
 
 function replace_audio($content) { //finds the old audio player shortcode and rewrites it
-  $content = preg_replace('/\[audio:/','[haiku url=',$content,1);
+  $content = preg_replace('/\[audio:/','[haiku url=',$content,-1);
   return $content;
 }
 
@@ -157,27 +157,27 @@ function haiku_player_shortcode($atts) {
 } //ends the haiku_player_shortcode function
 
 // scripts to go in the header and/or footer
-if( !is_admin()){
-   wp_enqueue_script('jquery');
-   wp_register_script('jplayer', plugins_url( '/js/jquery.jplayer.min.js', __FILE__ ), false, '1.2', true); 
-   wp_enqueue_script('jplayer');
-   wp_register_script('haiku-player', plugins_url( '/js/haiku-player.js', __FILE__ ), false, $haiku_player_version, true); 
-   wp_enqueue_script('haiku-player');
- wp_register_script('jquery-ui-custom', plugins_url( '/js/jquery-ui-custom.min.js', __FILE__ ), false, '1.8.7', true); 
-   wp_enqueue_script('jquery-ui-custom');
+function haiku_init() {
+	if ( !is_admin() ) {
+	  wp_enqueue_script('jquery');
+	  wp_enqueue_script('jplayer', plugins_url( '/js/jquery.jplayer.min.js', __FILE__ ), false, '1.2', true); 
+	  wp_enqueue_script('haiku', plugins_url( '/js/haiku-player.js', __FILE__ ), false, $haiku_player_version, true); 
+	  wp_enqueue_style('haiku', plugins_url( '/haiku-player.css', __FILE__ ), false, $haiku_player_version, 'screen'); 
+		wp_enqueue_script('jquery-ui-custom', plugins_url( '/js/jquery-ui-custom.min.js', __FILE__ ), false, '1.8.7', true); 
+	}
 }
 
+add_action('init', 'haiku_init');
 
 function haiku_player_head() {
-global $haiku_player_version;
+	global $haiku_player_version;
 	echo '
-<!-- loaded by Haiku audio player plugin-->
-<link rel="stylesheet" type="text/css" href="' .  plugins_url( 'haiku-player.css', __FILE__ ) . '?ver='.$haiku_player_version.'" />
-<script type="text/javascript">
-var jplayerswf = "'. plugins_url( '/js/', __FILE__ ) . '";
-</script>
-<!-- end Haiku -->
-';
+	<!-- Haiku -->
+	<script type="text/javascript">
+	var jplayerswf = "'. plugins_url( '/js/', __FILE__ ) . '";
+	</script>
+	<!-- end Haiku -->
+	';
 } // ends haiku_player_head function
 add_action('wp_head', 'haiku_player_head');
 

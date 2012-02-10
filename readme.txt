@@ -2,8 +2,7 @@
 Contributors: daltonrooney 
 Tags: audio player, jplayer, html5, audio, flash, mp3, music, minimalist, jquery, haiku
 Requires at least: 2.8
-Donate link: http://madebyraygun.com/donate/
-Tested up to: 3.2
+Tested up to: 3.3.1
 Stable tag: 0.4.3
 
 == Description ==
@@ -33,6 +32,10 @@ Please note that the graphical player is at an early stage of development and sh
 == Frequently Asked Questions ==
 
 
+= Why am I getting a weird Flash error in Firefox? =
+
+Try disabling Firebug.
+
 = Google Analytics tracking isn't working = 
 
 You must have Google Analytics installed in asyncrhonous mode at the top of your HTML document for the tracking code to work. If you don't know how to do this yourself, consider a plugin like [Asynchronous Google Analytics for WordPress](http://wordpress.org/extend/plugins/async-google-analytics/)
@@ -43,17 +46,17 @@ Audio plays will show up under the "Plays" category in the Events area of the Co
 
 Make sure you include the title attribute for the shortcode, that's what Analytics uses as the name of the event.
 
-= The graphical mode is all screwed up! =
+= The graphical mode doesn't look right in my theme! =
 
-The graphical mode is just basic HTML & CSS. I've done my best to make it compatible with a variety of themes, but I can't test every single one. Send me a link via the [forum](http://madebyraygun.com/support/forum) and I'll try to help you out.
+We've done our best to make the plugin compatible with a variety of themes, but we can't test every single one. Drop a line in the [forum](http://madebyraygun.com/support) and we'll try to help.
 
 = How can I customize the graphical mode with my own colors, text, or what have you? =
 
-Since the player is straight up HTML & CSS, feel free to make any changes you want. The original assets are zipped up in the "Resources" folder. If you would like advanced customization, [my company](http://madebyraygun.com) is available to help.
+Since the player is straight up HTML & CSS, feel free to make any changes you want. The original assets are zipped up in the "Resources" folder.
 
 = I've got a suggestion, how should I send it to you? =
 
-You might want to drop a link in the [forum](http://madebyraygun.com/forum).
+This plugin is not actively updated right now, but you can always drop a line in the [forum](http://madebyraygun.com/support).
 
 == Screenshots ==
 
@@ -64,19 +67,30 @@ You might want to drop a link in the [forum](http://madebyraygun.com/forum).
 
 == Changelog ==
 
+= 0.4.4 =
+
+* Fixed audio tag replacement
+
+* Better init for scripts and styles
 
 = 0.4.3 =
 
+
+
 * Change javascript loading behavior so plugin doesn't try to start too early and cause a Flash error on some browsers.
+
+
 
 = 0.4.2 =
 
+
+
 * Minor PHP cleanup.
+
 
 = 0.4.1 =
 
 * MP3 auto-replace now replaces all links on page (thanks pasevin!).
-
 
 * Optimized database updates & admin page load. 
 
