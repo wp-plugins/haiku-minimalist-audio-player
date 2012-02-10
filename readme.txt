@@ -3,7 +3,7 @@ Contributors: daltonrooney
 Tags: audio player, jplayer, html5, audio, flash, mp3, music, minimalist, jquery, haiku
 Requires at least: 2.8
 Tested up to: 3.3.1
-Stable tag: 0.4.3
+Stable tag: 0.4.4
 
 == Description ==
 
