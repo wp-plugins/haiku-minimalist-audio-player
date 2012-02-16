@@ -1,9 +1,9 @@
 === Haiku minimalist audio player ===
 Contributors: daltonrooney 
 Tags: audio player, jplayer, html5, audio, flash, mp3, music, minimalist, jquery, haiku
-Requires at least: 2.8
+Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 0.4.4
+Stable tag: 0.4.5
 
 == Description ==
 
@@ -66,6 +66,10 @@ This plugin is not actively updated right now, but you can always drop a line in
 2. Settings page.
 
 == Changelog ==
+
+= 0.4.5 =
+
+* CSS improvements for compatibility with more themes
 
 = 0.4.4 =
 

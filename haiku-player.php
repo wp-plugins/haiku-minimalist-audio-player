@@ -4,11 +4,11 @@ Plugin Name: Haiku - minimalist audio player
 Plugin URI: http://wordpress.org/extend/plugins/haiku-minimalist-audio-player/
 Description: A simple HTML5-based audio player.
 Author: Raygun
-Version: 0.4.4
+Version: 0.4.5
 Author URI: http://madebyraygun.com
 */ 
 
-define("HAIKU_VERSION", "0.4.4");
+define("HAIKU_VERSION", "0.4.5");
 
 register_activation_hook( __FILE__, 'haiku_install' );
 
