@@ -4,11 +4,11 @@ Plugin Name: Haiku - minimalist audio player
 Plugin URI: http://wordpress.org/extend/plugins/haiku-minimalist-audio-player/
 Description: A simple HTML5-based audio player.
 Author: Raygun
-Version: 0.4.5
+Version: 0.4.6
 Author URI: http://madebyraygun.com
 */ 
 
-define("HAIKU_VERSION", "0.4.5");
+define("HAIKU_VERSION", "0.4.6");
 
 register_activation_hook( __FILE__, 'haiku_install' );
 
@@ -91,10 +91,13 @@ function haiku_player_shortcode($atts) {
 		'title'	=> '',
 		'defaultpath' => '',
 		'noplayerdiv' => '',
+		'playerid' => '',
 		'graphical' => $haiku_player_show_graphical
 	), $atts));
 	// stuff that loads when the shortcode is called goes here
 	
+	if ( $playerid ) $i = $playerid;
+
 	if ($graphical == "false") {	//decide whether to show the text or graphical player
 	
 		if ( $noplayerdiv != "true" ) { //this exists mainly to hide the player controls and control it with an external application.
@@ -163,7 +166,7 @@ function haiku_init() {
 	  wp_enqueue_script('jplayer', plugins_url( '/js/jquery.jplayer.min.js', __FILE__ ), false, '1.2', true); 
 	  wp_enqueue_script('haiku', plugins_url( '/js/haiku-player.js', __FILE__ ), false, $haiku_player_version, true); 
 	  wp_enqueue_style('haiku', plugins_url( '/haiku-player.css', __FILE__ ), false, $haiku_player_version, 'screen'); 
-		wp_enqueue_script('jquery-ui-custom', plugins_url( '/js/jquery-ui-custom.min.js', __FILE__ ), false, '1.8.7', true); 
+	  wp_enqueue_script('jquery-ui-custom', plugins_url( '/js/jquery-ui-custom.min.js', __FILE__ ), false, '1.10.0', true); 
 	}
 }
 

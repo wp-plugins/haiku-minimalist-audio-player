@@ -2,8 +2,8 @@
 Contributors: daltonrooney 
 Tags: audio player, jplayer, html5, audio, flash, mp3, music, minimalist, jquery, haiku
 Requires at least: 3.0
-Tested up to: 3.4.0x
-Stable tag: 0.4.5
+Tested up to: 3.5.1
+Stable tag: 0.4.6
 
 == Description ==
 
@@ -67,6 +67,12 @@ This plugin is not actively updated right now, but you can always drop a line in
 
 == Changelog ==
 
+= 0.4.6 = 
+
+* Updated jQuery UI to latest components
+
+* Compatibility update for Portfolio Slideshow Pro
+
 = 0.4.5 =
 
 * CSS improvements for compatibility with more themes
@@ -79,15 +85,9 @@ This plugin is not actively updated right now, but you can always drop a line in
 
 = 0.4.3 =
 
-
-
 * Change javascript loading behavior so plugin doesn't try to start too early and cause a Flash error on some browsers.
 
-
-
 = 0.4.2 =
-
-
 
 * Minor PHP cleanup.
 
