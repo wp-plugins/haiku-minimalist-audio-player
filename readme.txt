@@ -1,9 +1,9 @@
 === Haiku minimalist audio player ===
-Contributors: daltonrooney,momnt
+Contributors: daltonrooney, momnt
 Tags: audio player, jplayer, html5, audio, flash, mp3, music, minimalist, jquery, haiku
-Requires at least: 3.0
+Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: 0.4.6
+Stable tag: 1.0.0
 
 == Description ==
 
@@ -13,7 +13,7 @@ A simple HTML5-based audio player that inserts a text link or graphical player f
 
 Extract the zip file and upload the contents to the wp-content/plugins/ directory of your WordPress installation, and then activate the plugin from plugins page. 
 
-Use the shortcode [haiku url="http://example.com/file.mp3" title="Title of audio file"] to play an audio file. Use the full URL of the audio file unless you've set a default file location in the settings page. The title field is recommended for search engine and accessibility purposes and required if you are using Google Analytics.
+Use the shortcode [haiku url="http://example.com/file.mp3" oga="http://example.com/file.ogg" title="Title of audio file"] to play an audio file. Use the full URL of the audio file unless you've set a default file location in the settings page. The title field is recommended for search engine and accessibility purposes, and is required if you're using Google Analytics.
 
 = Settings Options =
 
@@ -31,6 +31,9 @@ Please note that the graphical player is at an early stage of development and sh
 
 == Frequently Asked Questions ==
 
+= Why doesn't it work in [insert browser name here]? =
+
+If you're using a browser lower than IE8, you'll need to upgrade your browser. If you're using any sort of modern browser and not getting audio to play, make sure you have a .ogg or .oga fallback for your .mp3 files. See the documentation for more info. If that doesn't help, head to our [support forums](http://madebyraygun.com/support/) 
 
 = Why am I getting a weird Flash error in Firefox? =
 
@@ -67,11 +70,22 @@ This plugin is not actively updated right now, but you can always drop a line in
 
 == Changelog ==
 
-= 0.4.6 = 
+= 1.0.0 =
 
-* Updated jQuery UI to latest components
+* Upgraded to jPlayer 2.2.0
 
-* Compatibility update for Portfolio Slideshow Pro
+* CSS player icons - no images! :)
+
+* New "Show Time" option to display track length and current time in track
+
+* New "Loop" option
+
+* New fallback option so you can have .ogg or .oga audio files as a fallback for your .mp3s (for better browser support)
+
+* New .pot file for internationalizations. Stay tuned to translations!
+
+* New "custom players" section in admin -- create graphical players with any color scheme you want.
+
 
 = 0.4.5 =
 
@@ -85,9 +99,15 @@ This plugin is not actively updated right now, but you can always drop a line in
 
 = 0.4.3 =
 
+
+
 * Change javascript loading behavior so plugin doesn't try to start too early and cause a Flash error on some browsers.
 
+
+
 = 0.4.2 =
+
+
 
 * Minor PHP cleanup.
 
