@@ -1,9 +1,9 @@
 === Haiku minimalist audio player ===
-Contributors: daltonrooney, momnt
+Contributors: momnt, daltonrooney
 Tags: audio player, jplayer, html5, audio, flash, mp3, music, minimalist, jquery, haiku
 Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 
 == Description ==
 
@@ -18,13 +18,13 @@ Use the shortcode [haiku url="http://example.com/file.mp3" oga="http://example.c
 = Settings Options =
 
 The default file location field allows you to specify a folder in your site for your MP3 files. If, for example, all of your audio files are in http://yoursite.com/audio, set the default folder to /audio, and use the shortcode like this: [haiku url="file.mp3"]. This is also helpful if you're replacing an existing WordPress Audio Player installation. You can overwrite this setting on a per-player basis with the attribute defaultpath=disabled. For example, if you wanted to link to a file in a different folder you would use the shortcode [haiku url="http://yoursite/audiofolder2/file.mp3" defaultpath=disabled].
-		
+        
 The Google Analytics setting enables a script which tracks play events in your Google Analytics account using the title field. You must already have Google Analytics tracking installed on your site, using the asynchronous version of the script in the head of your HTML document.
-		
+        
 The player includes the ability to automatically turn all MP3 links into an audio player instance. Simply check the "Replace all mp3 links" checkbox on the settings. You may experience conflicts if you have other plugins that also override MP3 links, like Shadowbox.
-		
+        
 The player is now drop-in compatible with WordPress Audio Player. If you're replacing a WordPress Audio Player install, check the "replace WP Audio Player" box to automatically replace all instances of the WP Audio Player shortcode. (WP Audio Player must be disabled or removed for this to work). The Haiku shortcode is still the recommended format as it allows the "Title" field for Google Analytics support.
-				
+                
 The player includes a graphical mode, which is turned off by default. Enable graphical mode by changing the default setting in the settings panel or by adding the attribute graphical="true" to your shortcode. Can be overridden on a per-player basis.
 
 Please note that the graphical player is at an early stage of development and should be tested before you deploy it to a large audience. It is likely that the design of the player will change in future versions. It's just HTML & CSS, so feel free to experiment with your own examples.
@@ -69,6 +69,11 @@ This plugin is not actively updated right now, but you can always drop a line in
 2. Settings page.
 
 == Changelog ==
+
+= 1.1.0 =
+
+* Upgraded to jPlayer 2.3.0 for security
+
 
 = 1.0.0 =
 
